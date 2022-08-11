@@ -1,0 +1,33 @@
+/* Lien google font de la police décriture Raleway,  */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600&display=swap');
+
+/* Couleurs configurées via le :root */
+:root {
+    --black: #000000; 
+    --withe: #FFFFFF;
+    --gray: #242424;
+    --medium-gray: #575756;
+    --medium-light-gray: #706f6f;
+    --light-gray: #e3e3e3;
+    --line-and-btn-gray: #c6c6c6;
+    --footer-gray: #3c3c3b;
+}
+
+/* Paramètres par defaut du body */
+body {
+    height: 100vh; 
+}
+
+.bandeau 
+{
+    background-image: url(../images/pageHomeBanderole.png);
+    background-size: cover;
+    width: 100%;
+    height: 75vh;
+}
+.logo
+{
+    width: 5em;
+    border-radius: 10%;
+
+}

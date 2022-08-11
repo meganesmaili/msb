@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block body %}
+
+{% for product in allProductsFromMatter %}
+
+    {% if product.matter.id == matter.id %}
+        <div class="row justify-content-md-center">
+            <div class="col-12 lg-6">
+                <div class="menue">
+                    <div class="contenu">
+                        <div class="box card-artisan-type p-4">
+                            <div class="inbox">
+                                <img src="{{ asset('images/logo.png')}}" alt="">
+                            </div>
+                        <div class="text">
+                            <h3>{{product.name}}</h3>
+                            <p>{{product.description}}</p>
+                            <a href="{{ path('app_details_products', { id:product.id }) }}"><button class="btn btn-dark mb-3">Voir plus de détails</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+    {% endif %}
+
+    {% endfor %}
+
+
+{% endblock %}

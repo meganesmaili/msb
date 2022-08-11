@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Details de l'article
+{% endblock %}
+
+{% block body %}
+<main>
+       <div class="row d-lg-flex pt-5">
+            <div class="col-12 col-lg-6 mt-4">
+            <div class="row align-items-center carousel slide" data-bs-ride="carousel">
+                    <div class="col left carousel-control leftArrow" role="button">
+                    </div>
+                    <div class="carousel-inner col" id="img">
+                        <div class=" carousel-item  active">
+                            <img src="/images/artisan.jpg" alt="" class="sizeImg d-block square" >
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/structure/home/alimentaire.jpeg" alt="" class="sizeImg d-block square" >
+                        </div>
+                        <div class=" carousel-item">
+                            <img src="/images/structure/home/boulangerie.jpeg" alt="" class="sizeImg d-block square" >
+                        </div>
+                    </div>
+                    <div class="col right carousel-control rightArrow" role="button">
+                    </div>
+                </div>
+            </div>
+        <div class="col mt-3">
+                <h1>{{oneProducts.name}}</h1> 
+                <p>{{oneProducts.description}}</p>
+            </div>
+        </div>
+ 
+<section class="avis m-5 pt-5">
+
+    <h3 class="mt-5">Tous les avis</h3>
+    
+    {% for opinion in oneProducts.opinion %}
+        <ul>
+            <li>{{ opinion.avis }} - Note: {{ opinion.score }}/5 
+                {% if opinion.score == 1 %}
+                    <i class="text-warning" data-value="1">★</i></i><i class="star" data-value="1">★</i></i><i class="star" data-value="1">★</i></i><i class="star" data-value="1">★</i></i><i class="star" data-value="1">★</i>
+                {% endif %}
+
+                {% if opinion.score == 2 %}
+                    <i class="text-warning" data-value="1">★</i><i class="text-warning" data-value="1">★</i></i><i class="star" data-value="1">★</i></i><i class="star" data-value="1">★</i></i><i class="star" data-value="1">★</i>
+                {% endif %}
+
+                {% if opinion.score == 3 %}
+                    <i class="text-warning" data-value="1">★</i><i class="text-warning" data-value="1">★</i><i class="text-warning" data-value="1">★</i></i><i class="star" data-value="1">★</i></i><i class="star" data-value="1">★</i>
+                {% endif %}
+
+                {% if opinion.score == 4 %}
+                    <i class="text-warning" data-value="1">★</i><i class="text-warning" data-value="1">★</i><i class="text-warning" data-value="1">★</i><i class="text-warning" data-value="1">★</i></i><i class="star" data-value="1">★</i>
+                {% endif %}
+
+                {% if opinion.score == 5 %}
+                    <i class="text-warning" data-value="1">★</i><i class="text-warning" data-value="1">★</i><i class="text-warning" data-value="1">★</i><i class="text-warning" data-value="1">★</i><i class="text-warning" data-value="1">★</i>
+                {% endif %}
+            </li>
+        </ul> 
+
+    {% endfor %}
+
+        <div class="d-flexjustify-content-start ">
+            <a href="{{ path('app_opinion',{ id:oneProducts.id }) }}"><button class="btn btn-dark m-4 ">Déposez un avis</button></a>
+        </div>
+</section>
+</main>
+{% endblock %}
