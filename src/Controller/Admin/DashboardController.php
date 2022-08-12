@@ -36,10 +36,10 @@ class DashboardController extends AbstractDashboardController
         return [
 
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'), // Ajout de Dashboard            
-            MenuItem::linkToCrud('utilisateurs', 'fas fa-list', User::class),  // Ajout de utilisateurs          
-            MenuItem::linkToCrud('Products', 'fas fa-list', Products::class), // Ajout de Artisans            
-            MenuItem::linkToCrud('Opinion', 'fas fa-list', Opinion::class),  // Ajout de Avis              
-            MenuItem::linkToCrud('Category', 'fas fa-list', Category::class),// Ajout de Type 
+            MenuItem::linkToCrud('utilisateurs', 'fas fa-list', User::class),            
+            MenuItem::linkToCrud('Products', 'fas fa-list', Products::class),             
+            MenuItem::linkToCrud('Opinion', 'fas fa-list', Opinion::class),             
+            MenuItem::linkToCrud('Category', 'fas fa-list', Category::class),
             MenuItem::linkToCrud('Matter', 'fas fa-list', Matter::class),
             
         ];

@@ -2,9 +2,11 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Category;
+use App\Entity\Matter;
 use App\Entity\Products;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -18,6 +20,7 @@ class ProductsCrudController extends AbstractCrudController
     public static function getEntityFqcn(): string
     {
         return Products::class;
+        
     }
 
     public function configureFields(string $pageName): iterable
@@ -25,15 +28,17 @@ class ProductsCrudController extends AbstractCrudController
     {
     
     return [
+        
         TextField::new('name', 'nom'),
-        NumberField::new('matter_id'),
-        NumberField::new('category_id'),
+        TextField::new('matter.name', 'matière'),
+        TextField::new('category.name', 'catégorie'),
         TextEditorField::new('description'),
         TextField::new('profileFile', 'image') //Pour charger l'image dans l'edit
-        ->setFormType(VichImageType::class) // redimenssionnement avec VichImage
+        ->setFormType(VichImageType::class)// redimenssionnement avec VichImage
+        ->onlyOnForms(), 
         ImageField::new('picture', 'image') // faire apparaître l'image dans le formulaire
         ->setBasePath('images/products') // chemin d'accés de l'image dans le formulaire
-        ->setUploadDir('public/images/products') 
+        ->setUploadDir('public/images/products')
         ->hideOnForm() //pour n'apparaite que dans le form
         
     ];

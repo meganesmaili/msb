@@ -15,6 +15,7 @@ use Vich\UploaderBundle\Mapping\Annotation\UploadableField;
 use Vich\UploaderBundle\Entity\File as EntityFile;
 
 #[ORM\Entity(repositoryClass: ProductsRepository::class)]
+#[Vich\Uploadable]
 class Products
 {
     #[ORM\Id]
@@ -30,7 +31,7 @@ class Products
     private $description = null;
 
     #[ORM\Column(type: 'text', nullable: true)]
-    private $picture = null;
+    private $picture;
 
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
@@ -46,7 +47,7 @@ class Products
     #[ORM\JoinColumn(nullable: false)]
     private $matter = null;
 
-    #[Vich\UploadableField(mapping: 'artisans', fileNameProperty: 'picture')]
+    #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'picture')]
     #[Assert\Image(mimeTypesMessage: 'Ceci n\'est pas une image')]
     #[Assert\File(
         maxSize: '1M', 
@@ -168,7 +169,7 @@ class Products
         return $this;
     }
 
-    public function getProfileFile(): ?string
+    public function getProfileFile(): ?File
     {
         return $this->profileFile;
     }

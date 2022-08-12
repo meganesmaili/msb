@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Opinion;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
@@ -19,8 +20,9 @@ class OpinionCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
+            
             TextField::new('avis'),
+            NumberField::new('score'),
             
         ];
     }
