@@ -1,28 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello ProductsController!{% endblock %}
+{% block body%}
+<div class="cards">
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 m-auto">
+        {% for product in products %}
+            
+                <div class="card cardProducts">
+                    <img class="card-img-top" src="{{'/images/products/' ~ product.picture}}" alt="Card image cap">
+                    <div class="card-body"> 
+                        <h5 class="card-title">{{product.name}}</p>
+                        <p class="card-text">{{product.description}}</p>
+                        <button class="btnDetailsProduct"><a href="{{ path('app_details_products', { id:product.id }) }}">Détails</a></button>
+                    </div>
+                    {# <a href="{{ path('app_delete_artisan', { id:artisan.id }) }}" class="btn btn-outline-danger mb-3">Supprimer</a> #}   
+                </div>
+                
+        {% endfor %}
 
-{% block body %}
-
-    {% for product in products %}
-                        <div class="col-12 d-flex mb-3 mt-2 border-bottom">
-                            <div class="col-1 m-auto">
-                                <p class="text-center text-secondary">{{product.id}}</p>
-                            </div>
-                            <div class="col-1 m-auto">
-                                <p class="text-center">{{product.name}}</p>
-                            </div>
-                            <div class="col-1 m-auto">
-                                <p class="text-center">{{product.description}}</p>
-                            </div>
-                            <div class="col-1 m-auto">
-                                <p class="text-center">{{product.picture}}</p>
-                            </div>
-        
-                            <div class="col-2 d-flex justify-content-center m-auto gap-2">
-                            <a href="{{ path('app_details_products', { id:product.id }) }}" class="btn btn-outline-warning mb-3">Détails</a>
-                                {# <a href="{{ path('app_delete_artisan', { id:artisan.id }) }}" class="btn btn-outline-danger mb-3">Supprimer</a> #}
-                            </div>
-                        </div>
-                    {% endfor %}
+    </div>
+</div>
 {% endblock %}

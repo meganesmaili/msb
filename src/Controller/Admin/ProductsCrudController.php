@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Matter;
 use App\Entity\Products;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
@@ -30,8 +31,8 @@ class ProductsCrudController extends AbstractCrudController
     return [
         
         TextField::new('name', 'nom'),
-        TextField::new('matter.name', 'matière'),
-        TextField::new('category.name', 'catégorie'),
+        AssociationField::new('matter', 'matière'),
+        AssociationField::new('category', 'catégorie'),
         TextEditorField::new('description'),
         TextField::new('profileFile', 'image') //Pour charger l'image dans l'edit
         ->setFormType(VichImageType::class)// redimenssionnement avec VichImage

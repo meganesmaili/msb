@@ -55,6 +55,9 @@ class Products
     )]
     private $profileFile;
 
+    #[ORM\Column]
+    private ?float $price = null;
+
     
 
     public function __construct()
@@ -181,6 +184,18 @@ class Products
         if ($profileFile !== null) {
             $this->updated_at = new DateTimeImmutable();
         }
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }

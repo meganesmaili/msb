@@ -7,6 +7,7 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+            <link href="{{ asset('css/mediastyle.css') }}" rel="stylesheet">
             <!-- CSS only -->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
            
@@ -20,36 +21,37 @@
     
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg bg-light">
+            <nav class="navbar navbar-expand-lg navLinkChoose">
                 <div class="container-fluid">
                     <a class="navbar-brand marg-logo" href="{{ path('app_home') }}">
-                        <img src="{{ asset('/images/logo.png') }}" alt="" class="d-inline-block align-text-top logo">
+                        <img src="{{ asset('/images/logoV5.png') }}" alt="" class="d-inline-block align-text-top logo">
                     </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">Page d'accueil</a>
+                            <li class="nav-item homeLink">
+                                <a class="nav-link active " aria-current="page" href="{{ path('app_home') }}">Page d'accueil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_products') }}">Tous les produits</a>
+                                <a class="nav-link" href="{{ path('app_products') }}">Tous les articles</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Toutes les categories
+                                    Categories
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ path('app_category_products', { id:productsCategory[0].id })}}">Sacs</a></li>
-                                    <li><a class="dropdown-item" href="{{ path('app_category_products', { id:productsCategory[1].id })}}">Boucles d'oreilles</a></li>
-                                    <li><a class="dropdown-item" href="{{ path('app_category_products', { id:productsCategory[2].id })}}">Echarpes</a></li>
-                                    <li><a class="dropdown-item" href="{{ path('app_category_products', { id:productsCategory[3].id })}}">Mitaines</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('app_category_products', { id:productsCategory[0].id })}}">Mitaines</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('app_category_products', { id:productsCategory[1].id })}}">Echarpes</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('app_category_products', { id:productsCategory[2].id })}}">Maroquineries</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('app_category_products', { id:productsCategory[3].id })}}">Boucles d'oreilles</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('app_category_products', { id:productsCategory[4].id })}}">Décoration</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Toutes les matières
+                                    Matières
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ path('app_matter_products', { id:productsMatter[0].id })}}">Coton</a></li>
@@ -58,46 +60,72 @@
                                     <li><a class="dropdown-item" href="{{ path('app_matter_products', { id:productsMatter[3].id })}}">Coton bio d'Egypte</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#!">Contact</a>
-                            </li>
                         </ul>
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav btnLog">
                          {% if app.user is not null %}
                 
                                 {% if is_granted('ROLE_ADMIN') %}
-                                    <li class="nav-item">
-                                        <a class="nav-link text-warning" href="/admin">Administration</a>
+                                    <li class="nav-item m-2">
+                                        <a class="btnAdmin" href="/admin">
+                                        <?xml version="1.0" encoding="UTF-8"?>
+                                            <svg width="24px" height="24px" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <g id="admin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <path d="M250.989967,319.108535 L251.278124,319.179415 L311.566844,335.945745 C313.375576,336.448519 314.73169,337.938715 315.072725,339.771941 L315.108741,339.993534 C315.458421,342.508614 323.435696,401.918885 302.974525,431.473038 C282.538192,460.992549 252.389256,468.557398 251.115376,468.865247 C250.736938,468.956099 250.35131,469.001851 249.964374,469.001851 C249.577439,469.001851 249.191811,468.956752 248.813372,468.865247 L248.280668,468.728284 C243.957236,467.57058 216.164991,459.221379 196.954223,431.473038 C176.493053,401.918232 184.470327,342.50796 184.820007,339.993534 C185.078936,338.133267 186.375442,336.591465 188.147065,336.010773 L188.361904,335.945745 L248.650624,319.179415 C249.415199,318.966775 250.217473,318.943148 250.989967,319.108535 Z M250,236 C325.375976,236 386.839081,285.640072 389.88191,347.830714 L389.956189,349.719083 C389.985339,350.698662 390,446 390,446 L359.993876,446 L359.969463,350.611418 C358.609436,304.90799 310.8173,266 250,266 C189.338674,266 141.605079,304.721321 140.040599,350.297394 L140.008113,446 L110,446 L110.058258,349.268197 C112.216089,286.406758 174.044167,236 250,236 Z M250,394 L214.803703,394.001459 C216.285256,402.983304 218.625893,410.071966 221.619832,414.396511 C227.430381,422.789362 234.838334,429.271555 243.181776,434.080761 C245.234633,435.264039 247.258445,436.294316 249.216401,437.178151 L249.964,437.509 L249.999216,437.493 L250,394 Z M286.721,360.174 L249.999216,349.962 L250,394 L285.124,393.999 L285.217438,393.431461 C286.107688,387.84901 286.6699,381.56177 286.85708,374.767461 C286.984674,370.136009 286.939631,365.488661 286.754316,360.929042 L286.721,360.174 Z M250,6 C307.989899,6 355,53.0101013 355,111 C355,168.989899 307.989899,216 250,216 C192.010101,216 145,168.989899 145,111 C145,53.0101013 192.010101,6 250,6 Z M250,36 C208.578644,36 175,69.5786438 175,111 C175,152.421356 208.578644,186 250,186 C291.421356,186 325,152.421356 325,111 C325,69.5786438 291.421356,36 250,36 Z" id="Shape" fill="#000000"></path>
+                                                </g>
+                                            </svg>
+                                        </a>
 
                                     </li>
                                 {% endif %}
-                                {% if is_granted('ROLE_MODERATOR')%}
-                                    <li class="nav-item">
-                                        <a class="nav-link text-warning" href="{{ path('app_edit_artisan', {id: app.user.id}) }}">Ma page artisan</a>
-                                    </li>
-                                {% endif %}
-                                <li class="nav-item">
-                                    <a class="nav-link text-danger" href="{{ path('app_logout') }}">Se déconnecter</a>
+                                
+                                <li class="nav-item m-2">
+                                    <a class="btnLogout" href="{{ path('app_logout') }}">
+                                        <?xml version="1.0" encoding="UTF-8"?>
+                                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <g id="Iconly/Curved/Logout" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                                                    <g id="Logout" transform="translate(2.000000, 2.000000)" stroke="#000000" stroke-width="1.5">
+                                                        <line x1="19.791" y1="10.1207" x2="7.75" y2="10.1207" id="Stroke-1"></line>
+                                                        <polyline id="Stroke-3" points="16.8643 7.2047 19.7923 10.1207 16.8643 13.0367"></polyline>
+                                                        <path d="M0.2588,5.6299 C0.5888,2.0499 1.9288,0.7499 7.2588,0.7499 C14.3598,0.7499 14.3598,3.0599 14.3598,9.9999 C14.3598,16.9399 14.3598,19.2499 7.2588,19.2499 C1.9288,19.2499 0.5888,17.9499 0.2588,14.3699" id="Stroke-4" transform="translate(7.309300, 9.999900) scale(-1, 1) translate(-7.309300, -9.999900) "></path>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                    </a>
                                 </li>
                             {% else %}
                                 <li class="nav-item m-2">
-                                    <button class="btn btn-outline-secondary" type="button">
+                                    <button class="btnConnect" type="button">
                                         <a href="{{ path('app_login') }}">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                                            </svg>
+                                           <?xml version="1.0" ?>
+                                           <svg id="Icons_User" overflow="hidden" width='16px' height="16px" version="1.1" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                           <g>
+                                           <circle cx="48" cy="30" r="16"/>
+                                           <path d=" M 80 82 L 80 66 C 80 63.6 78.8 61.2 76.8 59.6 C 72.4 56 66.8 53.6 61.2 52 C 57.2 50.8 52.8 50 48 50 C 43.6 50 39.2 50.8 34.8 52 C 29.2 53.6 23.6 56.4 19.2 59.6 C 17.2 61.2 16 63.6 16 66 L 16 82 L 80 82 Z"/>
+                                           </g>
+                                           </svg>
                                         </a>
                                     </button>
                                 </li>
+                                
+                               {#  <li class="nav-item">
+                                    <a class="nav-link text-warning" href="{{ path('app_edit_artisan', {id: app.user.id}) }}">Ma page de profil</a>
+                                </li> #}
+                        
                             {% endif %}
+                            <li class="nav-item m-2">
+                                <button class="btnConnect" type="button"><a href="{{ path('app_cart') }}">
+                                <?xml version="1.0" ?>
+                                <svg enable-background="new 0 0 64 64" id="Layer_1" version="1.1" viewBox="0 0 64 64" width="24px" height="24px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M23.734,28.125c1.104,0,2-0.896,2-2v-7.8c0-3.487,2.837-6.325,6.324-6.325c3.487,0,6.325,2.838,6.325,6.325v7.8   c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2v-7.8C42.384,12.632,37.752,8,32.058,8c-5.692,0-10.324,4.632-10.324,10.325v7.8   C21.734,27.229,22.63,28.125,23.734,28.125z"/><path d="M55,23.631H44.384v2.494c0,2.206-1.794,4-4,4s-4-1.794-4-4v-2.494h-8.649v2.494c0,2.206-1.794,4-4,4s-4-1.794-4-4v-2.494H9   c-0.552,0-0.893,0.435-0.762,0.971l6.998,28.497C15.658,54.701,17.344,56,19,56h26c1.658,0,3.342-1.299,3.766-2.901l6.996-28.497   C55.893,24.065,55.553,23.631,55,23.631z"/>
+                                </g>
+                                </svg>
+                            {% set nbProduits = app.session.get('qt') %}
+                            {% if nbProduits > 0 %}
+                                <span class="position-absolute top-25 start-90 translate-middle badge rounded-pill bg-danger"> {{ nbProduits }} </span>
+                            {% endif %}
+                            
+                            </a></button></li>
                         </ul> 
                         
-                        <div>
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Rechercher</button>
-                            </form>
-                        </div>
                     </div>
                 </div>
             </nav>    
@@ -107,58 +135,42 @@
         <!-- Footer -->
         <footer class="text-center text-lg-start bg-light text-muted">
             <!-- Section: Social media -->
-            <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <section class="d-flex justify-content-center justify-content-lg-between border-bottom socialMediaFooter">
                 <!-- Left -->
                 <div class="me-5 d-none d-lg-block">
-                <span>Get connected with us on social networks:</span>
+                <p>Retrouvez-nous aussi sur les liens suivants :</p>
                 </div>
                 <!-- Left -->
                 <!-- Right -->
                 <div>
-                    <a href="" class="me-4 text-reset">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                        </svg>
-                    </a>
-                    <a href="" class="me-4 text-reset">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-                        </svg>
-                    </a>
-                    <a href="" class="me-4 text-reset">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
-                            <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
-                        </svg>
-                    </a>
-                    <a href="" class="me-4 text-reset">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                        </svg>
-                    </a>
-                    <a href="" class="me-4 text-reset">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
-                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-                        </svg>
-                    </a>
-                    <a href="" class="me-4 text-reset">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                        </svg>
-                    </a>
+                    <button class="btnSocialLink">
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+                                <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+                            </svg>
+                        </a>
+                    </button>
+                    <button class="btnSocialLink">
+                        <a href="https://www.instagram.com/mstitchboutique">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                            </svg>
+                        </a>
+                    </button>
                 </div>
                 <!-- Right -->
             </section>
             <!-- Section: Social media -->
             <!-- Section: Links  -->
-            <section class="">
-                <div class="container text-center text-md-start mt-5">
+            <section class="linksContactFooterSection">
+                <div class="container text-center text-md-start pt-5 linksContactFooter">
                 <!-- Grid row -->
-                    <div class="row mt-3">
+                    <div class="row mt-3 mb-0">
                         <!-- Grid column -->
                         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
-                            <h6 class="text-uppercase fw-bold mb-4"> <i class="fas fa-gem me-3"></i>Company name</h6>
-                            <p>Here you can use rows and columns to organize your footer content. Lorem ipsumdolor sit amet, consectetur adipisicing elit.</p>
+                            <h6 class="text-uppercase fw-bold mb-4"> <i class="fas fa-gem me-3"></i>MStitchBoutique</h6>
+                            <p>Petite boutique artisanale de vente d'accessoire fait main au crochetn tricot et couture</p>
                         </div>
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -188,10 +200,9 @@
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                        <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
-                        <p><i class="fas fa-envelope me-3"></i>info@example.com</p>
+                        <p><i class="fas fa-home me-3"></i>Mâcon, France</p>
+                        <p><i class="fas fa-envelope me-3"></i>mstitcheboutique@gmail.com</p>
                         <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                        <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
                     </div>
                     <!-- Grid column -->
                     </div>
@@ -200,9 +211,8 @@
             </section>
             <!-- Section: Links  -->
             <!-- Copyright -->
-            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-                © 2021 Copyright:
-                <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            <div class="text-center p-4 mt-0 endFooter" >
+                © 2021 Copyright: Mstitchboutique 
             </div>
             <!-- Copyright -->
         </footer>

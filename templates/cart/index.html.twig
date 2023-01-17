@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier!{% endblock %}
+
+{% block body %}
+    <section class= "bg-light p-3 cartSection">
+        <h1>Votre Panier</h1>
+    </section>
+    {% if items %}
+
+
+    <table class="table cartAdd">
+        <thead>
+            <tr>
+                <th class="col">Produit</th>
+                <th class="col">Prix</th>
+                <th class="col">Quantité</th>
+                <th class="col">Total</th>
+                <th class="col"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+
+            <tr>
+                <td>
+                    <div class="cardProduct">
+                    <img class="cartProductImage" src="{{'/images/products/' ~ item.product.picture}}" alt="Card image cap">
+                        <div="cardProductDetail">
+                            <h3>{{ item.product.name }}</h3>
+                            <p>
+                                {{ item.product.category.name }}
+                                {{ item.product.matter.name }}
+                            </p>
+                        </div>
+                    </div>
+                </td>
+                <td>{{ item.product.price }} €</td>
+                
+                    <td> 
+                        <div  class="quantityAddRemove">
+                            <button class ="btnMinusRemove">
+                                <a href="{{path('app_cart_remove', { id: item.product.id } ) }}">
+                                    <?xml version="1.0" encoding="iso-8859-1"?>
+                                        <svg  width="16px" height="16px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 491.858 491.858" style="enable-background:new 0 0 491.858 491.858;" xml:space="preserve">
+                                            <g>
+                                                <g>
+                                                    <path d="M465.167,211.613H240.21H26.69c-8.424,0-26.69,11.439-26.69,34.316s18.267,34.316,26.69,34.316h213.52h224.959
+                                                        c8.421,0,26.689-11.439,26.689-34.316S473.59,211.613,465.167,211.613z"/>
+                                                </g>
+                                                
+                                            </g>
+
+                                        </svg>
+                                </a>
+                            </button>
+                                <p>{{ item.quantity }}</p>
+                            <button class ="btnPlusAdd">
+                                <a href="{{path('app_cart_add', { id: item.product.id } ) }}">
+                                    <?xml version="1.0" ?>
+                                    <svg width="20px" height="20px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path class="st0" d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20  s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"/>
+                                    </svg>
+                                </a>
+                            </button>
+                        </div>
+                    </td>
+                
+                <td>{{ item.product.price * item.quantity }} € </td>
+                <td><a href="{{path('app_cart_remove', {id: item.product.id})}}" class="btnRemoveArticle">
+                    <?xml version="1.0" encoding="iso-8859-1"?>
+                    <svg width="20px" height="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 268.476 268.476" style="enable-background:new 0 0 268.476 268.476;" xml:space="preserve">
+                        <g id="Delete__x2F__Trash">
+                        <path style="fill-rule:evenodd;clip-rule:evenodd;" d="M63.119,250.254c0,0,3.999,18.222,24.583,18.222h93.072
+                            c20.583,0,24.582-18.222,24.582-18.222l18.374-178.66H44.746L63.119,250.254z M170.035,98.442c0-4.943,4.006-8.949,8.949-8.949
+                            c4.943,0,8.95,4.006,8.95,8.949l-8.95,134.238c0,4.943-4.007,8.949-8.949,8.949c-4.942,0-8.949-4.007-8.949-8.949L170.035,98.442z
+                            M125.289,98.442c0-4.943,4.007-8.949,8.949-8.949c4.943,0,8.949,4.006,8.949,8.949v134.238c0,4.943-4.006,8.949-8.949,8.949
+                            c-4.943,0-8.949-4.007-8.949-8.949V98.442z M89.492,89.492c4.943,0,8.949,4.006,8.949,8.949l8.95,134.238
+                            c0,4.943-4.007,8.949-8.95,8.949c-4.942,0-8.949-4.007-8.949-8.949L80.543,98.442C80.543,93.499,84.55,89.492,89.492,89.492z
+                            M218.36,35.811h-39.376V17.899C178.984,4.322,174.593,0,161.086,0L107.39,0C95.001,0,89.492,6.001,89.492,17.899v17.913H50.116
+                            c-7.914,0-14.319,6.007-14.319,13.43c0,7.424,6.405,13.431,14.319,13.431H218.36c7.914,0,14.319-6.007,14.319-13.431
+                            C232.679,41.819,226.274,35.811,218.36,35.811z M161.086,35.811h-53.695l0.001-17.913h53.695V35.811z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                    </svg></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        
+    </table>
+        <div class="totalResult">
+            <h2 colspan ="3" class="text-end"> Total de la commande: </h2>
+            <p>{{total}} €</p>
+            <button class="btnPayment"><a href="">Payer</a></button>
+        </div>
+    {% else %}
+        <p>Votre panier est vide !</p>
+    {% endif %}
+{% endblock %}

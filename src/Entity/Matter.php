@@ -21,6 +21,11 @@ class Matter
     #[ORM\OneToMany(mappedBy: 'matter', targetEntity: Products::class)]
     private $products;
 
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+    
     public function __construct()
     {
         $this->products = new ArrayCollection();

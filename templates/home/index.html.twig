@@ -1,20 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello !{% endblock %}
+{% block title %}Bienvenue !{% endblock %}
 
 {% block body %}
     
     <div class="main-line">
-    <div class ="bandeau">
-        
+    <div class ="bandeau"></div>
+    <div class ="bandeauForTab">
+        <h1>MStitch Boutique</h1>
+        <img src="{{ asset('/images/ballOfWool.png') }}">
     </div>
         {% for lastProduct in lastProducts %}
             {% if lastProduct.id is odd %}
-            <div class="d-lg-flex">
+            <div class="d-lg-flex lastAdd">
                 <div class="col-12 col-lg-6">
                     <img src="{{ asset('/images/structure/home/boulangerie.jpeg') }}" alt="" class="list-img">
                 </div>
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6 lastAddProducts">
                     <h3 class="list-h3">{{lastProduct.name}} <span class="list-note"><i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> 5/5</span></h3>
                     <p class="list-text">{{lastProduct.description}}</p>
                     <div class="list-line"></div>
@@ -23,11 +25,11 @@
                 </div>
             </div>
             {% else %}
-            <div class="d-lg-flex">
+            <div class="d-lg-flex lastAdd">
                 <div class="col-12 d-lg-none">
                     <img src="{{ asset('/images/structure/home/menuiserie.jpeg') }}" alt="" class="list-img">
                 </div>
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6 lastAddProducts">
                     <h3 class="list-h3">{{lastProduct.name}} <span class="list-note"><i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> 4/5</span></i></h3>
                     <p class="list-text">{{lastProduct.description}}</p>
                     <div class="list-line"></div>
@@ -42,7 +44,7 @@
         {% else %}
             <div class="col-12 d-flex mb-3 mt-2 border-bottom">
                 <div class="col-8 m-auto">
-                    <p class="text-center">Aucuns artisans</p>
+                    <p class="text-center">Aucuns articles</p>
                 </div>
                 <div class="col-4 d-flex justify-content-center pb-3">
                     <a href="{{ path('app_home') }}" class="btn btn-outline-warning m-auto">Quitter la page</a>

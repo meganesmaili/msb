@@ -22,6 +22,11 @@ class Category
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Products::class, orphanRemoval: true)]
     private $products;
 
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+    
     public function __construct()
     {
         $this->products = new ArrayCollection();

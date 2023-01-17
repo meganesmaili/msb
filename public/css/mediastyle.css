@@ -1,0 +1,267 @@
+
+:root {
+    --darkOrchid: #2d3436; 
+    --white: #FFFFFF;
+    --gray: #40434a;
+    --medium-gray: #636e72;
+    --medium-light-gray: #706f6f;
+    --light-gray: #e3e3e3;
+    --line-and-btn-gray: #c6c6c6;
+    --footer-gray: #3c3c3b;
+    --mustard: #f7de79;
+}
+
+/*
+*Navbar
+*/
+
+@media screen and (max-width:990px)
+{
+    .btnLog
+    {
+        display: flex !important;
+        flex-direction: row !important;
+    }
+}
+
+ /*
+ * Home
+ */
+@media screen and (min-width:1450px)
+{
+    .bandeauForTab
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width:1450px)
+{
+    .bandeau
+    {
+        display: none;
+    }
+    .bandeauForTab
+    {
+        height: 75vh;
+        background-color: var(--mustard);
+        display: flex;
+        justify-content: space-around;
+        
+    }
+    .bandeauForTab h1 
+    {
+        text-align: center;
+        margin-top: 1em;
+        width: 50%;
+        font-size: 5em;
+
+    }
+
+    .bandeauForTab img
+    {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 50%;
+        
+    }
+
+}
+
+
+@media screen and (max-width:580px)
+{
+    
+
+    .bandeauForTab 
+    {
+        display: block;
+    }
+    .bandeauForTab h1 
+    {
+        padding-left: 0.5em;
+        text-align: center;
+        margin-top: 0.75em;
+        padding-top: 0.5em;
+    }
+
+    .bandeauForTab img
+    {
+        position: absolute;
+        left: 25%;
+        top: 40%;
+    }
+
+    .lastAdd
+    {
+        height: 35vh;
+    }
+
+
+}
+
+
+
+/*
+* ProductDetails
+*/
+
+@media screen and (max-width:1096px)
+
+{
+    .productDetail
+    {
+        height: 100vh;
+        
+    }
+
+    .productInfo
+
+    {
+        padding-top: 3em;
+    }
+    .productDetail div
+    {
+        display: inline-block !important;
+
+    }
+
+    .productImage 
+    {
+        width: 30em;
+        height: 30em;
+    }
+
+    .opinionSection
+    {
+        height: 75vh;
+    }
+}
+
+@media screen and (max-width:750px)
+{
+    .productInfo
+    {
+        text-align: center;
+    }
+    .productImage 
+    {
+        margin: 1em;
+    }
+}
+
+@media screen and (max-width:650px)
+{
+    .productImage 
+    {
+        width: 20em;
+        height: 20em;
+        margin: 1em;
+    }
+}
+
+/*
+*Cart
+*/
+
+@media screen and (max-width:800px)
+
+{
+    .quantityAddRemove
+    {
+        display: flex;
+        flex-direction: column;
+    }
+  
+    .quantityAddRemove td
+    {
+        text-align: center;
+    }
+    .quantityAddRemove p 
+    {
+        text-align: center;
+        margin-top: 1em;
+    }
+    .cardProduct
+    {
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width:1080px)
+{
+    .quantityAddRemove
+    {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .quantityAddRemove p 
+    {
+        margin-bottom: 0;
+    }
+}
+
+/*
+* Login
+*/
+@media screen and (max-width:580px)
+{
+    .loginPage
+    {
+        height: 100vh;
+    }
+
+    .loginHeader
+    {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .registerRemoveBtn
+    {
+        margin: 2em;
+    }
+}
+
+@media screen and (max-height:580px)
+{
+    .loginPage
+    {
+        height: 110vh;
+    }
+}
+
+
+/*
+* Registration
+*/
+@media screen and (max-width:580px)
+{
+    .registrationPage
+    {
+        height: 120vh;
+    }
+
+    .registrationForm
+    {
+        left: 2em;
+        right: 2em;
+        margin: 2em 0;
+        width: 85vw;
+    }
+}
+
+@media screen and (max-height:580px)
+{
+    .registrationPage
+    {
+        height: 150vh;
+    }
+    .registrationForm
+    {
+        height: 120vh;
+    }
+}
+

@@ -1,33 +1,1303 @@
 /* Lien google font de la police décriture Raleway,  */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600&display=swap');
 
-/* Couleurs configurées via le :root */
+/* 
+*Couleurs configurées via le :root 
+*/
 :root {
-    --black: #000000; 
-    --withe: #FFFFFF;
-    --gray: #242424;
-    --medium-gray: #575756;
+    --darkOrchid: #2d3436; 
+    --white: #FFFFFF;
+    --gray: #40434a;
+    --medium-gray: #636e72;
     --medium-light-gray: #706f6f;
     --light-gray: #e3e3e3;
     --line-and-btn-gray: #c6c6c6;
     --footer-gray: #3c3c3b;
+    --mustard: #f7de79;
 }
 
-/* Paramètres par defaut du body */
+/* 
+*Paramètres par defaut du body 
+*/
+
 body {
     height: 100vh; 
 }
 
+/*
+*HomePage
+*/
+
+.main-line
+{
+    margin: 0;
+}
 .bandeau 
 {
-    background-image: url(../images/pageHomeBanderole.png);
+    background-image: url(../images/pageHomeBanderoleCut.png);
     background-size: cover;
     width: 100%;
     height: 75vh;
+    margin-top: 0;
 }
+
 .logo
 {
-    width: 5em;
+    width: 2.5em;
     border-radius: 10%;
 
 }
+
+.homeLink :hover
+{
+    color: var(--mustard);
+    font-weight: bold;
+}
+.lastAdd
+{
+    width: 75vw;
+    height: 25vh;
+    margin: 5em auto;
+}
+.navLinkChoose
+{
+    background-color: var(--light-gray);
+    position: absolute!important;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.btnAdmin
+{
+    align-self: center;
+    background-color: var(--white);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(59, 56, 56, 0.822) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+   
+}
+.btnAdmin:hover
+{
+    color: #41403e;
+}
+
+.btnLogout
+{
+    align-self: center;
+    background-color: var(--white);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(59, 56, 56, 0.822) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    text-decoration: none;
+}
+.btnLogout:hover
+{
+    color: #41403e;
+}
+/*
+*Login
+*/
+
+.errorMessage
+{
+    align-self: center;
+    background-color: rgba(197, 34, 34, 0.76);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgb(194, 28, 28) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.inputEmail
+{
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.76);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgb(248, 246, 246) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    display: inline-block;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 1.2em;
+}
+.inputFormLogin
+{
+    display: flex;
+    flex-direction: column;
+}
+.loginContainer
+{
+    display: flex !important;
+    
+   
+}
+
+.forgetPass
+{
+    color: var(--medium-gray);
+}
+
+.forgetPass p:hover
+{
+    color: var(--darkOrchid);
+
+}
+
+.btnRegister a
+{
+    text-decoration: none;
+    color: var(--medium-gray);
+    font-weight: bold;
+}
+.btnRegister a:hover
+{
+    color: var(--darkOrchid);
+}
+.btnRegister{
+    align-self: center;
+    background-color: var(--mustard);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(59, 56, 56, 0.822) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .btnRegister:hover {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+  }
+  
+  .btnRegister:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  }
+
+
+.btnConnect{
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(49, 49, 49, 0.76) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btnConnect:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.btnConnect:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+.loginContainer label
+{
+    font-weight: bold;
+}
+.loginPage
+{
+    background-image: url(../images/cozyKnitting.jpg); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 75vh;
+    margin-top: 5em;
+}
+
+.loginPage h2
+{
+    color: var(--gray);
+}
+
+/*
+*Register
+*/
+
+.registrationForm
+{
+    align-self: center;
+    background-color: rgba(247, 222, 121, 1);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgb(248, 246, 246) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #636e72;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 25vw;
+    height: 75vh;
+    margin: 5em auto;
+    text-align: center;
+    position: absolute;
+    left: 25em;
+    right: 25em;
+    
+}
+.registrationForm h1
+{
+    margin: 1em;
+}
+.registrationPage
+{
+    background-image: url(../images/cozyKnitting.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    margin: 0 ;
+    
+}
+.registration
+{
+    padding-top: 4em;
+}
+
+.registrationForm input
+{
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.76);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgb(248, 246, 246) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    display: inline-block;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 1em;
+}
+
+.required
+{
+    padding-right: 0.5em;
+}
+
+.btnRegisterForm
+{
+    align-self: center;
+    background-color: #fff;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(49, 49, 49, 0.76) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 1em;
+}
+
+
+
+/*
+*Reset Password
+*/
+
+.resetPassword
+{
+    height: 75vh;
+    background-image: url(../images/cozyKnitting.jpg); 
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.resetPassword h1
+{
+    padding: 1.5em 0 2em 1.5em ;
+}
+.resetPassword form
+{
+    padding: 0 4em;
+}
+
+.emailResetSend
+{
+    align-self: center;
+  background-color: var(--white);
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(49, 49, 49, 0.76) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 1.5em;
+}
+#reset_password_request_form_email
+{
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.76);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgb(248, 246, 246) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    display: inline-block;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 1.2em;
+}
+
+/*
+* Product Details
+*/
+
+.btnDetailsProduct
+{
+    align-self: center;
+    background-color: var(--mustard);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(59, 56, 56, 0.822) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btnDetailsProduct a
+{
+    text-decoration: none;
+    color: var(--gray);
+}
+.btnDetailsProduct a:hover
+{
+    color: var(--darkOrchid);
+}
+.cards
+{
+    padding: 7em 4em;
+    background-color: var(--gray);
+    margin: 0;
+}
+.cardProducts
+{
+    width: 18em !important; 
+    margin: 2em 1em !important;
+    padding: 0 !important;
+    background-color: #e3e3e3 !important;
+    
+}
+.cardProducts img
+{
+    width: auto;
+    height: 18em;
+   
+    
+}
+
+
+.productImage 
+{
+    width: 20em;
+    height: 20em;
+    margin-left: 5em;
+}
+
+.productDetail
+{
+    
+    width: 75vw;
+    margin: 5em auto;
+    height: 75vh;
+}
+
+.btnOpinion
+{
+    align-self: center;
+    background-color: var(--white);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(59, 56, 56, 0.822) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 1em;
+    padding: .75rem;
+}
+
+.btnOpinion:hover 
+{
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+  
+.btnOpinion:focus 
+{
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+.btnOpinion a
+{
+    text-decoration: none;
+    color: #41403e;
+}
+
+.btnOpinion a:hover
+{
+    color: var(--darkOrchid);
+}
+
+.opinionSection ul
+{
+    list-style: none;
+    align-self: center;
+    background-color: var(--white);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-sizing: border-box;
+    color: #41403e;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 1em;
+    margin-right: 2em;
+    padding: 2em;
+
+}
+/*
+*Cart
+*/
+
+.cartSection
+{
+    margin-top: 5em;
+}
+
+.cartAdd
+{
+    width: 75vw !important;
+    height: 50vh;
+    margin: 2em auto;
+}
+.cartAdd th
+{
+    font-size: 1.5em;
+}
+.cartAdd td
+{
+    vertical-align: middle;
+}
+.cardProduct
+{
+    display: flex;
+}
+
+.cartProductImage
+{
+    width: 5em;
+    height: 5em;
+    margin-right: 1em;
+}
+
+.cardProductDetail
+{
+    display: flex;
+    flex-direction: column;
+}
+.btnMinusRemove
+{
+    align-self: center;
+    background-color: var(--white);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(59, 56, 56, 0.822) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-right: 0.5em;
+}
+
+.btnMinusRemove:hover {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+  }
+  
+  .btnMinusRemove:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  }
+
+.btnPlusAdd
+{
+    align-self: center;
+    background-color: var(--white);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(59, 56, 56, 0.822) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-left: 0.5em;
+}
+
+.btnPlusAdd:hover {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+  }
+  
+  .btnPlusAdd:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  }
+
+.btnRemoveArticle
+{
+    align-self: center;
+    background-color: var(--white);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(59, 56, 56, 0.822) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+.btnRemoveArticle:hover
+{
+    color: red;
+    fill: red;
+}
+.totalResult
+{
+    text-align: end;
+    margin-right: 5em;
+    margin-top: 5em;
+}
+.totalResult p 
+{
+    font-size: 1.2em;
+}
+
+.btnPayment
+{
+    align-self: center;
+    background-color: var(--white);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(49, 49, 49, 0.76) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-bottom: 1em;
+}
+
+.btnPayment:hover 
+{
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+    border-color: green;
+}
+  
+.btnPayment:focus 
+{
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+.btnPayment a:hover
+{
+    color: green;
+}
+.btnPayment a
+{
+    text-decoration: none;
+    color: var(--darkOrchid);
+}
+
+/*
+*Email Sent
+*/
+
+.emailSent
+{
+    width: 75vw;
+    height: 25vh;
+    margin: 10em auto;
+}
+
+.emailSent p
+{
+    font-size: 1.5em;
+}
+.emailSent p a
+{
+    text-decoration: none;
+    color: #000;
+}
+.emailSent p a span {
+    font-weight: 100;
+    transition: all 0.5s;
+    border-bottom: 1px solid;
+}
+.emailSent p a span:nth-child(2) {
+    transition-delay: 0.01s;
+}
+.emailSent p a span:nth-child(3) {
+    transition-delay: 0.02s;
+}
+.emailSent p a span:nth-child(4) {
+    transition-delay: 0.03s;
+}
+.emailSent p a span:nth-child(5) {
+    transition-delay: 0.04s;
+}
+.emailSent p a span:nth-child(6) {
+    transition-delay: 0.05s;
+}
+.emailSent p a span:nth-child(7) {
+    transition-delay: 0.06s;
+}
+.emailSent p a span:nth-child(8) {
+    transition-delay: 0.07s;
+}
+.emailSent p a span:nth-child(9) {
+    transition-delay: 0.08s;
+}
+.emailSent p a span:nth-child(10) {
+    transition-delay: 0.09s;
+}
+.emailSent p a:hover span {
+    font-weight: 700;
+}
+.emailSent p a:hover span:nth-child(10) {
+    transition-delay: 0.09s;
+}
+.emailSent p a:hover span:nth-child(9) {
+    transition-delay: 0.08s;
+}
+.emailSent p a:hover span:nth-child(8) {
+    transition-delay: 0.07s;
+}
+.emailSent p a:hover span:nth-child(7) {
+    transition-delay: 0.06s;
+}
+.emailSent p a:hover span:nth-child(6) {
+    transition-delay: 0.05s;
+}
+.emailSent p a:hover span:nth-child(5) {
+    transition-delay: 0.04s;
+}
+.emailSent p a:hover span:nth-child(4) {
+    transition-delay: 0.03s;
+}
+.emailSent p a:hover span:nth-child(3) {
+    transition-delay: 0.02s;
+}
+.emailSent p a:hover span:nth-child(2) {
+    transition-delay: 0.01s;
+}
+.emailSent p a:hover span:nth-child(1) {
+    transition-delay: 0s;
+}
+.emailSent p a.hover-shadow:hover {
+    text-shadow: 1px 1px 0px #ddd, 2px 2px 0px #ddd, 3px 3px 0px #ddd;
+}
+.emailSent p a.hover-color:hover {
+    border-color: darkmagenta;
+}
+
+/*
+*Opinion
+*/
+
+.opinionContainer
+{
+    background-image: url(../images/cozyKnitting.jpg); 
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.opinionPage
+{
+    width: 50vw;
+    height: 75vh;
+    margin-left: 7em;
+}
+
+#opinion_avis
+{
+    
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.76);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgb(248, 246, 246) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    display: inline-block;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 1em;
+}
+
+
+#opinion_score
+{
+    width: 5vw;
+    margin-top: 1em;
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.76);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgb(248, 246, 246) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    display: inline-block;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 1em;
+}
+.opinionSectionAdd
+{
+    padding: 7em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#opinion_save
+{
+    align-self: center;
+    background-color:var(--white);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(49, 49, 49, 0.76) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+#opinion_save:hover 
+{
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+  
+#opinion_save:focus 
+{
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+.btnGoBackHome
+{
+    align-self: center;
+    background-color: var(--white);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(59, 56, 56, 0.822) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btnGoBackHome a
+{
+    text-decoration: none;
+}
+
+.btnGoBackHome:hover
+{
+    color: var(--darkOrchid);
+}
+
+/*
+*Footer
+*/
+
+.socialMediaFooter
+{
+    background-color: var(--mustard);
+    color: var(--darkOrchid);
+    padding: 1.5em 3.5em;
+}
+.socialMediaFooter p
+{
+    font-size: 1.2em;
+}
+.linksContactFooterSection
+{
+    background-color: var(--light-gray);
+    color: var(--darkOrchid);
+}
+
+.linksContactFooter
+{
+    margin: 0 auto!important;
+}
+
+.endFooter
+{
+    background-color: var(--darkOrchid);
+    color: var(--mustard);
+}
+
+.btnSocialLink
+{
+    align-self: center;
+    background-color:var(--mustard);
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(49, 49, 49, 0.76) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btnSocialLink:hover 
+{
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+  
+.btnSocialLink:focus 
+{
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+.btnSocialLink a
+{
+    color: var(--darkOrchid);
+}
+.btnSocialLink a:hover
+{
+    color: var(--darkOrchid);
+}
+
