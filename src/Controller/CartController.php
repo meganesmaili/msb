@@ -23,7 +23,7 @@ class CartController extends AbstractController
 
         $dataPanier =[];
         $total = 0;
-        
+        $quantity = 0;  
         foreach($cart as $id => $quantity){
             $products = $productsRepository->find($id);
             $dataPanier[] = [
@@ -94,6 +94,24 @@ class CartController extends AbstractController
                 $cart[$id]--;
             }
             else {
+                unset($cart[$id]);
+            }
+        }
+            
+        $session->set('cart', $cart);
+        
+        /* dd($session->get('cart')); */
+    return $this->redirectToRoute('app_cart');
+        
+    }
+    #[Route('/delete/{id}', name:'app_cart_delete')]
+    public function delete($id, SessionInterface $session)
+    {
+        $cart = $session->get("cart", []);
+
+
+        if(!empty($cart[$id])){
+            if ($cart[$id] >= 0) {
                 unset($cart[$id]);
             }
         }

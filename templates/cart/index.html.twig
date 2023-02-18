@@ -7,8 +7,6 @@
         <h1>Votre Panier</h1>
     </section>
     {% if items %}
-
-
     <table class="table cartAdd">
         <thead>
             <tr>
@@ -69,7 +67,7 @@
                     </td>
                 
                 <td>{{ item.product.price * item.quantity }} € </td>
-                <td><a href="{{path('app_cart_remove', {id: item.product.id})}}" class="btnRemoveArticle">
+                <td><a href="{{path('app_cart_delete', {id: item.product.id})}}" class="btnRemoveArticle">
                     <?xml version="1.0" encoding="iso-8859-1"?>
                     <svg width="20px" height="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 268.476 268.476" style="enable-background:new 0 0 268.476 268.476;" xml:space="preserve">
@@ -96,6 +94,9 @@
             <button class="btnPayment"><a href="">Payer</a></button>
         </div>
     {% else %}
-        <p>Votre panier est vide !</p>
+        <div class="emptyCart">
+            <p>Votre panier est vide !</p>
+            <button class="emptyCartButton"><a href ="{{ path('app_home') }}">Acheter maintenant</a></button>
+        </div>
     {% endif %}
 {% endblock %}
