@@ -30,11 +30,12 @@ class ProductsCrudController extends AbstractCrudController
     
     return [
         
-        TextField::new('name', 'nom'),
-        AssociationField::new('matter', 'matière'),
-        AssociationField::new('category', 'catégorie'),
-        TextEditorField::new('description'),
-        TextField::new('profileFile', 'image') //Pour charger l'image dans l'edit
+        TextField::new('name', 'Nom'),
+        AssociationField::new('matter', 'Matière'),
+        AssociationField::new('category', 'Catégorie'),
+        TextEditorField::new('description', 'Description'),
+        NumberField::new('quantity', 'En stock'),
+        TextField::new('profileFile', 'Image') //Pour charger l'image dans l'edit
         ->setFormType(VichImageType::class)// redimenssionnement avec VichImage
         ->onlyOnForms(), 
         ImageField::new('picture', 'image') // faire apparaître l'image dans le formulaire

@@ -29,7 +29,6 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'i' => $i,
             'lastProducts' => $lastProducts,
-
             'productsCategory' => $categoryRepository->findAll(),
             'productsMatter' => $matterRepository->findAll()
 

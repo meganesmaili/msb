@@ -15,6 +15,7 @@
                 <h1>{{oneProducts.name}}</h1> 
                 <p>{{oneProducts.description}}</p>
                 <p>{{oneProducts.price}} €</p>  
+                <p>En stock : {{oneProducts.quantity}}</p>
                 <button class="btnDetailsProduct"><a href="{{path('app_cart_add', { id: oneProducts.id } ) }}">
                     Ajouter au panier
                 </a></button>

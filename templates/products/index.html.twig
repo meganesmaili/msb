@@ -9,8 +9,9 @@
                 <div class="card cardProducts">
                     <img class="card-img-top" src="{{'/images/products/' ~ product.picture}}" alt="Card image cap">
                     <div class="card-body"> 
-                        <h5 class="card-title">{{product.name}}</p>
+                        <h5 class="card-title">{{product.name}}</h5>
                         <p class="card-text">{{product.description}}</p>
+                        <p class="card-text">En stock : {{product.quantity}}</p>
                         <button class="btnDetailsProduct"><a href="{{ path('app_details_products', { id:product.id }) }}">Détails</a></button>
                     </div>
                     {# <a href="{{ path('app_delete_artisan', { id:artisan.id }) }}" class="btn btn-outline-danger mb-3">Supprimer</a> #}   
