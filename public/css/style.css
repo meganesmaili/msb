@@ -884,6 +884,29 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.ProductSize
+{
+    font-size: 0.7em !important;
+}
+
+.ProductStock
+{
+    color: red;
+}
+
+.PriceDetailsCard
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em;
+}
+
+.PriceDetailsCard p 
+{
+    margin-top: 0.5em;
+}
+
 .btnMinusRemove
 {
     align-self: center;

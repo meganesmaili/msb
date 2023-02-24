@@ -61,6 +61,9 @@ class Products
     #[ORM\Column]
     private ?int $quantity = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $size = null;
+
     
 
     public function __construct()
@@ -211,6 +214,18 @@ class Products
     public function setQuantity(int $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getSize(): ?string
+    {
+        return $this->size;
+    }
+
+    public function setSize(?string $size): self
+    {
+        $this->size = $size;
 
         return $this;
     }

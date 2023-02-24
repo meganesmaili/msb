@@ -14,8 +14,17 @@
             <div class="col-12 col-lg-6 productInfo">
                 <h1>{{oneProducts.name}}</h1> 
                 <p>{{oneProducts.description}}</p>
+                 {% if oneProducts.size == NULL %}
+                    <p>Pas de dimensions pour ce produit!</p>
+                {% else %}
+                    <p class="card-text">Dimension : {{oneProducts.size}}</p>
+                {% endif %}
                 <p>{{oneProducts.price}} €</p>  
-                <p>En stock : {{oneProducts.quantity}}</p>
+                {% if oneProducts.quantity > 0 %}
+                    <p class="card-text">En stock : {{oneProducts.quantity}}</p>
+                {% else %}
+                    <p class="ProductStock"> Rupture de stock</p>
+                {% endif %}
                 <button class="btnDetailsProduct"><a href="{{path('app_cart_add', { id: oneProducts.id } ) }}">
                     Ajouter au panier
                 </a></button>

@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
@@ -33,7 +34,8 @@ class ProductsCrudController extends AbstractCrudController
         TextField::new('name', 'Nom'),
         AssociationField::new('matter', 'Matière'),
         AssociationField::new('category', 'Catégorie'),
-        TextEditorField::new('description', 'Description'),
+        TextareaField::new('description', 'Description'),
+        TextField::new('size', 'Dimension'),
         NumberField::new('quantity', 'En stock'),
         TextField::new('profileFile', 'Image') //Pour charger l'image dans l'edit
         ->setFormType(VichImageType::class)// redimenssionnement avec VichImage

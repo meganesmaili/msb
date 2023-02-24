@@ -12,7 +12,22 @@
                         <div class="card-body">
                             <h3>{{product.name}}</h3>
                             <p>{{product.description}}</p>
-                            <button class="btnDetailsProduct"><a href="{{ path('app_details_products', { id:product.id }) }}">Détails</a></button>
+                            {% if product.size == NULL %}
+                                <p class="ProductSize">Pas de dimensions pour ce produit!</p>
+                            {% else %}
+                                <p class="card-text ProductSize">Dimension : {{product.size}}</p>
+                            {% endif %}
+
+                            {% if product.quantity > 0 %}
+                                <p class="card-text">En stock : {{product.quantity}}</p>
+                            {% else %}
+                                <p class="ProductStock"> Rupture de stock</p>
+                            {% endif %}
+
+                            <div class="PriceDetailsCard">
+                                <button class="btnDetailsProduct"><a href="{{ path('app_details_products', { id:product.id }) }}">Détails</a></button>
+                                <p>{{product.price}} €</p>
+                            </div>
                         </div>
                     </div>
                 </div>

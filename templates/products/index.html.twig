@@ -11,8 +11,21 @@
                     <div class="card-body"> 
                         <h5 class="card-title">{{product.name}}</h5>
                         <p class="card-text">{{product.description}}</p>
-                        <p class="card-text">En stock : {{product.quantity}}</p>
-                        <button class="btnDetailsProduct"><a href="{{ path('app_details_products', { id:product.id }) }}">Détails</a></button>
+                        {% if product.size == NULL %}
+                            <p class="ProductSize">Pas de dimensions pour ce produit!</p>
+                        {% else %}
+                            <p class="card-text ProductSize">Dimension : {{product.size}}</p>
+                        {% endif %}
+
+                        {% if product.quantity > 0 %}
+                            <p class="card-text">En stock : {{product.quantity}}</p>
+                        {% else %}
+                            <p class="ProductStock"> Rupture de stock</p>
+                        {% endif %}
+                        <div class="PriceDetailsCard">
+                            <button class="btnDetailsProduct"><a href="{{ path('app_details_products', { id:product.id }) }}">Détails</a></button>
+                            <p>{{product.price}} €</p>
+                        </div>
                     </div>
                     {# <a href="{{ path('app_delete_artisan', { id:artisan.id }) }}" class="btn btn-outline-danger mb-3">Supprimer</a> #}   
                 </div>
