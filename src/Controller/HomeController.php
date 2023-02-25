@@ -7,6 +7,7 @@ use App\Entity\Matter;
 use App\Entity\Products;
 use App\Repository\CategoryRepository;
 use App\Repository\MatterRepository;
+use App\Repository\OpinionRepository;
 use App\Repository\ProductsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(ProductsRepository $productsRepository, CategoryRepository $categoryRepository, MatterRepository $matterRepository): Response
+    public function index(ProductsRepository $productsRepository, CategoryRepository $categoryRepository, MatterRepository $matterRepository, OpinionRepository $opinionRepository): Response
     {
         $i = [1,2,3,4];
 
@@ -30,7 +31,8 @@ class HomeController extends AbstractController
             'i' => $i,
             'lastProducts' => $lastProducts,
             'productsCategory' => $categoryRepository->findAll(),
-            'productsMatter' => $matterRepository->findAll()
+            'productsMatter' => $matterRepository->findAll(),
+            'opinion' => $opinionRepository->findAll(),
 
         ]);
     

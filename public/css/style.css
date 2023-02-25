@@ -28,6 +28,10 @@ body {
 *HomePage
 */
 
+.container-fluid
+{
+    margin: 0;
+}
 .main-line
 {
     margin: 0;
@@ -55,9 +59,14 @@ body {
 }
 .lastAdd
 {
-    width: 75vw;
-    height: 25vh;
+    width: 50vw;
+    height: 50vh;
     margin: 5em auto;
+}
+
+.lastAddProducts
+{
+    align-self: center;
 }
 .navLinkChoose
 {
@@ -67,6 +76,11 @@ body {
     right: 0;
     left: 0;
     z-index: 99;
+}
+
+.productHomeImage
+{
+    width: 80%;
 }
 
 .btnAdmin
@@ -230,6 +244,7 @@ body {
 
 }
 
+
 .btnRegister a
 {
     text-decoration: none;
@@ -370,8 +385,8 @@ body {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 25vw;
-    height: 75vh;
+    width: 30vw;
+    height: 80vh;
     margin: 5em auto;
     text-align: center;
     position: absolute;
@@ -379,10 +394,23 @@ body {
     right: 25em;
     
 }
-.registrationForm h1
+.registrationForm h1,div
 {
-    margin: 1em;
+    margin-top: 1.5em;
+    
 }
+.registrationForm label 
+{
+    padding-right: 2em;
+    
+}
+.registrationForm input 
+{
+    margin-left: 2em;
+    
+}
+
+
 .registrationPage
 {
     background-image: url(../images/cozyKnitting.jpg);
@@ -464,7 +492,7 @@ body {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    margin-top: 1em;
+    margin-top: 1.5em;
 }
 
 
@@ -697,7 +725,7 @@ body {
 {
     
     width: 75vw;
-    margin: 5em auto;
+    margin: 8em 2em 0 8em;
 }
 
 .btnOpinion
@@ -850,7 +878,7 @@ body {
 }
 .cartSection
 {
-    margin-top: 5em;
+    margin-top: 6em;
 }
 
 .cartAdd
