@@ -5,10 +5,12 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Matter;
 use App\Entity\Products;
+use App\Entity\User;
 use App\Repository\CategoryRepository;
 use App\Repository\MatterRepository;
 use App\Repository\OpinionRepository;
 use App\Repository\ProductsRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,9 +25,6 @@ class HomeController extends AbstractController
 
         $lastProducts = $productsRepository->find2LastInserted();
 
-        $i = [1,2,3,4];
-
-        $lastProducts = $productsRepository->find2LastInserted();
 
         return $this->render('home/index.html.twig', [
             'i' => $i,
@@ -65,6 +64,19 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/profil/{id}', name: 'app_profil', requirements:["id"=>"\d+"])]
+
+    public function profil(int $id,User $user, UserRepository $userRepository, ProductsRepository $productsRepository, CategoryRepository $categoryRepository, MatterRepository $matterRepository)
+    {
+        return $this->render('home/profil.html.twig', [
+            
+            'userProfils'=>$user,
+            'profil' => $userRepository->find($id),
+            "items"=> $productsRepository->findAll(),
+            'productsCategory' => $categoryRepository->findAll(),
+            'productsMatter' => $matterRepository->findAll()
+        ]);
+    }
     
      
 }

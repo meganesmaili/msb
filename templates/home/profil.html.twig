@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon profil{% endblock %}
+
+{% block body %}
+    <div class = "userProfil">
+        <h5>Bonjour {{profil.lastname}} {{profil.firstname}} !</h5> 
+
+        <div>
+            <h6>Mes Commandes</h6>
+                 {# <table class="table cartAdd">
+                    <thead>
+                        <tr>
+                            <th class="col">Produit</th>
+                            <th class="col">Prix</th>
+                            <th class="col">Quantité</th>
+                            <th class="col"> Statut de la commande </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            {% for item in items %}
+                    <tr>
+                        <td>
+                            <div class="cardProduct">
+                            <img class="cartProductImage" src="{{'/images/products/' ~ item.product.picture}}" alt="Card image cap">
+                                <div="cardProductDetail">
+                                    <h3>{{ item.product.name }}</h3>
+                                    <p>
+                                        {{ item.product.category.name }}
+                                        {{ item.product.matter.name }}
+                                    </p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{ item.product.price }} €</td>  
+                        <td>{{ item.product.price * item.quantity }} € </td>
+                        <td>En cours</td>
+                    </tr>
+                    {% endfor %}
+    
+                    
+                </table> #}
+        </div>
+        
+    </div>
+{% endblock %}
