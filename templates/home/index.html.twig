@@ -14,30 +14,21 @@
             {% if lastProduct.id is odd %}
             <div class="d-lg-flex lastAdd">
                 <div class="col-12 col-lg-6">
-                    <img src="{{ asset('/images/structure/home/boulangerie.jpeg') }}" alt="" class="list-img">
+                    <img src="{{ asset('/images/products/' ~ lastProduct.picture) }}" alt="" class="list-img productHomeImage">
                 </div>
-                <div class="col-12 col-lg-6 lastAddProducts">
+                <div class="col-12 col-lg-6 lastAddProductsTwo">
                     <h3 class="list-h3">{{lastProduct.name}} <span class="list-note"><i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> 5/5</span></h3>
                     <p class="list-text">{{lastProduct.description}}</p>
-                    <div class="list-line"></div>
-                    <p class="list-user-avis">User(e)</p>
-                    <p class="list-avis-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, adipisci eligendi expedita quae labore recusandae nobis voluptatem magnam mollitia corrupti aliquam corporis numquam quisquam? Qui deserunt asperiores aut eveniet quos?</p>
                 </div>
             </div>
             {% else %}
             <div class="d-lg-flex lastAdd">
-                <div class="col-12 d-lg-none">
-                    <img src="{{ asset('/images/structure/home/menuiserie.jpeg') }}" alt="" class="list-img">
-                </div>
                 <div class="col-12 col-lg-6 lastAddProducts">
                     <h3 class="list-h3">{{lastProduct.name}} <span class="list-note"><i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> <i class="fi fi-ss-star"></i> 4/5</span></i></h3>
                     <p class="list-text">{{lastProduct.description}}</p>
-                    <div class="list-line"></div>
-                    <p class="list-user-avis">User(e)</p>
-                    <p class="list-avis-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ducimus, aspernatur quaerat quod consequatur nesciunt dignissimos recusandae magni, unde exercitationem nostrum eum facilis quis laudantium illo dolorum, commodi necessitatibus minus.</p>
                 </div>
-                <div class="d-none d-lg-block col-lg-6">
-                    <img src="{{ asset('/images/structure/home/menuiserie.jpeg') }}" alt="" class="list-img">
+                <div class="col-12 col-lg-6">
+                    <img src="{{ asset('/images/products/' ~ lastProduct.picture) }}" alt="" class="list-img productHomeImage">
                 </div>
             </div>
             {% endif %}
