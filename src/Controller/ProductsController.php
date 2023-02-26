@@ -22,7 +22,7 @@ class ProductsController extends AbstractController
         ]);
     }
 
-    //Obtenir le détail d'un artisan via le tableau
+    //Obtenir le détail des produits
     #[Route('/products/{id}', name: 'app_details_products', requirements:["id"=>"\d+"])]
     public function details( int $id, ProductsRepository $productsRepository, CategoryRepository $categoryRepository, MatterRepository $matterRepository)
     {

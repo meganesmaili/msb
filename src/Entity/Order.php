@@ -22,7 +22,17 @@ class Order
     #[ORM\Column(nullable: true)]
     private ?int $total = null;
 
-   
+    #[ORM\ManyToMany(targetEntity: Products::class, inversedBy: 'orders')]
+    private Collection $products;
+
+    #[ORM\OneToMany(mappedBy: 'orders', targetEntity: User::class)]
+    private Collection $user;
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+        $this->user = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -49,6 +59,60 @@ class Order
     public function setTotal(?int $total): self
     {
         $this->total = $total;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Products>
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Products $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products->add($product);
+        }
+
+        return $this;
+    }
+
+    public function removeProduct(Products $product): self
+    {
+        $this->products->removeElement($product);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, user>
+     */
+    public function getUser(): Collection
+    {
+        return $this->user;
+    }
+
+    public function addUser(user $user): self
+    {
+        if (!$this->user->contains($user)) {
+            $this->user->add($user);
+            $user->setOrders($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(user $user): self
+    {
+        if ($this->user->removeElement($user)) {
+            // set the owning side to null (unless already changed)
+            if ($user->getOrders() === $this) {
+                $user->setOrders(null);
+            }
+        }
 
         return $this;
     }

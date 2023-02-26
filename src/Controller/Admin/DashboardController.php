@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Entity\Matter;
 use App\Entity\Opinion;
+use App\Entity\Order;
 use App\Entity\Products;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -36,10 +37,11 @@ class DashboardController extends AbstractDashboardController
         return [
 
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'), // Ajout de Dashboard            
-            MenuItem::linkToCrud('utilisateurs', 'fas fa-list', User::class),            
-            MenuItem::linkToCrud('Products', 'fas fa-list', Products::class),                         
-            MenuItem::linkToCrud('Category', 'fas fa-list', Category::class),
-            MenuItem::linkToCrud('Matter', 'fas fa-list', Matter::class),
+            MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', User::class),            
+            MenuItem::linkToCrud('Produits', 'fas fa-list', Products::class),                         
+            MenuItem::linkToCrud('Catégories', 'fas fa-list', Category::class),
+            MenuItem::linkToCrud('Matières', 'fas fa-list', Matter::class),
+            MenuItem::linkToCrud('Commande', 'fas fa-list', Order::class),
             
         ];
     }
