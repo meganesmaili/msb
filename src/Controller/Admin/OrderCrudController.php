@@ -36,7 +36,8 @@ class OrderCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {
         return $actions
-        ->disable(Action::NEW);
+        ->disable(Action::NEW)
+        ->disable(Action::EDIT);
     }
     
 }
